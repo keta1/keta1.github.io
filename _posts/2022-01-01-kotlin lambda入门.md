@@ -84,8 +84,11 @@ fun myBuildStr(builderAction: StringBuilder.() -> Unit /* 它的接受对象是S
 }
 
 fun main() {
-    val str = myBuildStr { /* 注意，这里的参数名是this 指的是StringBuilder的对象 而且它不能被重命名 */
+    val str = myBuildStr { /* 注意，这里的参数是this 指的是StringBuilder的对象 而且它不能被重命名 */
+        // 这和在一个类中调用成员函数或是类的扩展函数是一样的 
+        // 可以隐式调用
         append("Hello, ")
+        // 也可以显式地使用this调用
         this.append("World!")
     }
     println(str)
