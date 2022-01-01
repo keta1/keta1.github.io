@@ -33,7 +33,7 @@ fun main() {
 **注意：可调用对象可以被当做参数传递，这也是我们使用lambda最频繁的方式。**
 
 ### lambda的声明方式
-正常来说，lambda由参数、箭头以及返回值构成，如：`(T) -> R`    
+正常来说，lambda由`参数、箭头以及返回值类型`构成，如：`(T) -> R`    
 `T`代表**参数类型**，它由括号包裹起来(可以不写参数名字)    
 `R`代表**返回值类型**，它和参数由箭头`->`分隔开来    
 
@@ -85,9 +85,9 @@ fun myBuildStr(builderAction: StringBuilder.() -> Unit /* 它的接受对象是S
 }
 
 fun main() {
-    val str = myBuildStr {
+    val str = myBuildStr { /* 注意，这里的参数名是this 指的是StringBuilder的对象 而且它不能被重命名 */
         append("Hello, ")
-        append("World!")
+        this.append("World!")
     }
     println(str)
 }
