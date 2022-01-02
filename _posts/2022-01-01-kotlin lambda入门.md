@@ -111,7 +111,7 @@ fun three(action: (String, Double, Int) -> Unit) {
 }
 
 fun main() {
-    one { /* 如果没有给lambda的参数命名的话 默认是it 你也可以手动给它命名 */
+    one { /* 如果没有给lambda的参数命名且只有一个参数时 默认参数名是it 你也可以手动给它命名 */
         println(it)
     }
 
