@@ -1,5 +1,8 @@
 ---
 title: kotlin lambda入门
+tags: 
+  - Kotlin
+  - lambda
 ---
 
 ```kotlin
