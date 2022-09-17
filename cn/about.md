@@ -5,8 +5,4 @@ lang:       zh
 permalink:  /cn/about/
 ---
 
-Just say something about yourself. :+1:
-
-{% highlight javascript %}
-(() => console.log('hello, world!'))();
-{% endhighlight %}
+欢迎访问 Ketal 和 狐狸狸 的小博客！
