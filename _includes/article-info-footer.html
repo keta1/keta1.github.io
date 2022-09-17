@@ -1,0 +1,13 @@
+<div class="article__info clearfix">
+  <ul class="left-col menu">
+    <li>
+      <i class="fas fa-camera"></i>
+      {% include snippets/get-locale-string.html key='BACKGROUND_PREFIX' %}
+      {{ __return }}
+      <a href="{{ site.data.images[page.image].url }}" target="_blank">{{ site.data.images[page.image].author }}</a>
+      {% include snippets/get-locale-string.html key='BACKGROUND_MIDDLE' %}
+      {{ __return }}
+      <a href="{{ site.data.images[page.image].license_url }}" target="_blank">{{ site.data.images[page.image].license | remove: "License" }}</a>
+    </li>
+  </ul>
+</div>

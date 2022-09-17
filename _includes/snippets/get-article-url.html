@@ -1,0 +1,10 @@
+{% assign _id = include.article.id %}
+{% assign _filename = _id | split: "/" | last %}
+{% assign _suffix = _filename | prepend: "/" %}
+{% assign _matched = include.collection | where_exp: "item", "item.id contains _suffix" | first %}
+
+{% if _matched %}
+  {% assign __return = _matched.url %}
+{% else %}
+  {% assign __return = nil %}
+{% endif %}
