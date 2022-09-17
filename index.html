@@ -1,5 +1,18 @@
 ---
 layout: home
-# articles:
-#   excerpt_type: html
+title: 主页
+pagination:
+  enabled: true
+  collection: posts
+  sort_field: date
+  sort_reverse: true
+  permalink: '/page:num/'
+
+# hack for "pagination.permalink"
+paginate_pattern: '/page:num/'
+
+# hack for home path
+baseurl: '/'
+
+ads_tags: [java, elasticsearch, devops, git, api, backend]
 ---

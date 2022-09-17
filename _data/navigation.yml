@@ -1,3 +1,24 @@
+site:
+  titles:
+    en        : Home
+    zh        : 狐言狐语和仙贝的魔法学习记录
+  urls:
+    en        : /en/
+    zh        : /
+  # switch to the other langage
+  urls2:
+    en        : /
+    zh        : /en/
+  urls2_src:
+    en        : /assets/img/flag-CN.png
+    zh        : /assets/img/flag-US.png
+  urls2_alt:
+    en        : "切换到中文"
+    zh        : "Switch to English"
+  archive_url:
+    en        : /en/archive/
+    zh        : /cn/archive/
+
 header:
   - titles:
       # @start locale config
@@ -14,7 +35,9 @@ header:
       zh-TW   : *ZH_HANT
       zh-HK   : *ZH_HANT
       # @end locale config
-    url: /archive.html
+    urls:
+      en      : /en/archive/
+      zh      : /cn/archive/
 
   - titles:
       # @start locale config
@@ -31,4 +54,6 @@ header:
       zh-TW   : *ZH_HANT
       zh-HK   : *ZH_HANT
       # @end locale config
-    url: /about.html
+    urls:
+      en      : /en/about/
+      zh      : /cn/about/

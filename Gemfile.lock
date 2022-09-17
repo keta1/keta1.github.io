@@ -42,6 +42,10 @@ GEM
     jekyll-feed (0.16.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-paginate (1.1.0)
+    jekyll-paginate-v2 (3.0.0)
+      jekyll (>= 3.0, < 5.0)
+    jekyll-redirect-from (0.16.0)
+      jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (2.2.0)
       sassc (> 2.0.1, < 3.0)
     jekyll-sitemap (1.4.0)
@@ -72,8 +76,6 @@ GEM
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-linux)
-      racc (~> 1.4)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (5.0.0)
@@ -97,11 +99,12 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-linux
 
 DEPENDENCIES
+  jekyll-paginate-v2 (~> 3.0)
+  jekyll-redirect-from (~> 0.16)
   jekyll-text-theme
   tzinfo-data
 
 BUNDLED WITH
-   2.3.22
+   2.0.2

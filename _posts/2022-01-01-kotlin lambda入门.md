@@ -1,5 +1,6 @@
 ---
 title: kotlin lambda入门
+lang:  zh
 tags: 
   - Kotlin
 ---

@@ -27,8 +27,8 @@ description: > # this means to ignore newlines until "Language & timezone"
 
 ## => Language and Timezone
 ##############################
-lang: # the language of your site, default as "en"
-timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
+lang: zh
+timezone: Asia/Shanghai
 
 
 ## => Author and Social
@@ -64,7 +64,7 @@ repository_tree: main
 paths:
   root    : # title link url, "/" (default)
   home    : # home layout url, "/" (default)
-  archive : # "/archive.html" (default)
+  archive : /archive/
   rss     : # "/feed.xml" (default)
 
 
@@ -94,10 +94,12 @@ mermaid: # false (default), true
 chart: # false (default), true
 
 
-## => Paginate
+## => Paginate (v2)
 ##############################
-paginate: 8
-paginate_path: /page:num # don't change this unless for special need
+pagination:
+  enabled: true
+  per_page: 8
+#paginate_path: /page:num # don't change this unless for special need
 
 
 ## => Sources
@@ -211,7 +213,19 @@ defaults:
       license: true
       aside:
         toc: true
-      show_edit_on_github: true
+      show_edit_on_github: false
+      show_subscribe: true
+      pageview: true
+  - scope:
+      path: _en
+      type: en
+    values:
+      layout: article
+      sharing: true
+      license: true
+      aside:
+        toc: true
+      show_edit_on_github: false
       show_subscribe: true
       pageview: true
 
@@ -220,6 +234,14 @@ defaults:
 ##############################
 plugins:
   - jekyll-feed
-  - jekyll-paginate
+  - jekyll-paginate-v2
+  - jekyll-redirect-from
   - jekyll-sitemap
   - jemoji
+
+## => Collections
+##############################
+collections:
+  en:
+    promalink: /en/:title/
+    output:    true

@@ -1,0 +1,48 @@
+---
+layout: page
+titles:
+  # @start locale config
+  en      : &EN       Archive
+  en-GB   : *EN
+  en-US   : *EN
+  en-CA   : *EN
+  en-AU   : *EN
+  zh-Hans : &ZH_HANS  归档
+  zh      : *ZH_HANS
+  zh-CN   : *ZH_HANS
+  zh-SG   : *ZH_HANS
+  zh-Hant : &ZH_HANT  歸檔
+  zh-TW   : *ZH_HANT
+  zh-HK   : *ZH_HANT
+  # @end locale config
+---
+
+<div class="layout--archive js-all">
+  {%- include tags.html -%}
+
+  <p class="article__content">
+    <i>Due to technical constraints, only the tags of English posts are shown.</i>
+  </p>
+
+  <div class="js-result layout--archive__result d-none">
+    {%- assign _articles = site.posts -%}
+
+    {%- for _a in site.en -%}
+      {%- assign _articles = _articles | push: _a -%}
+    {%- endfor -%}
+
+    {%- include article-list.html
+                articles=_articles
+                type='brief'
+                show_info=true
+                reverse=true
+                group_by='year'
+    -%}
+  </div>
+</div>
+
+<script>
+  {%- include scripts/archieve.js -%}
+</script>
+
+{{ content }}
