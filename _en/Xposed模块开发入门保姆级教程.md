@@ -16,7 +16,7 @@ article_header:
 ---
 
 ## Introduction
-Since the Xposed development tutorials on the web are too broken, Fox decided to write a tutorial to help all developers who want to develop/are developing Xposed modules.   
+Since the Xposed development tutorials on the web are too broken, KyuubiRan decided to write a tutorial to help all developers who want to develop/are developing Xposed modules.   
 
 ## Before you start
 You need to be prepared to.    
