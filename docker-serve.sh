@@ -7,7 +7,7 @@
 #
 #     --env JEKYLL_ENV=production
 #
-export JEKYLL_VERSION=3.8
+export JEKYLL_VERSION=4.2.2
 docker run --rm \
   -p 4000:4000 \
   --env "JIMI_USERNAME=${JIMI_USERNAME}" \
