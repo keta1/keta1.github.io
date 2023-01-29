@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+
+{% assign pageYear = page.date | date: "%Y" | plus: 0 %}
+{% assign pageMonth = page.date | date: "%m" | plus: 0 %}
+
+<div class="page monthly">
+  <h1 class="page-title">Monthly Digest</h1>
+  <p>My blog posts of {{ page.date | date: "%B, %Y" }}.</p>
+  <div class="monthly items">
+  {% for post in site.posts %}
+    {% assign create_year_month = post.date | date: "%Y-%m" %}
+    {% assign update_year_month = post.last_modified_at | date: "%Y-%m" %}
+    {% assign this_year_month = page.date | date: "%Y-%m" %}
+
+    {% if update_year_month == this_year_month %}
+        <table class="item">
+          <tr>
+            <td class="image">
+              <a href="{{ post.id }}">
+                <div class="image" style="background-image: url('{{ post.image }}')">
+                </div>
+              </a>
+            </td>
+            <td class="desc">
+              <a class="header" href="{{ post.id }}">{{ post.title }}</a>
+              <p class="body">{{ post.excerpt }}</p>
+              <p class="footer">
+                {{ post.last_modified_at | date_to_long_string }} (updated) | {{ post.tags | join: ', ' }}
+              </p>
+            </td>
+          </tr>
+        </table>
+    {% elsif create_year_month == this_year_month %}
+        <table class="item">
+          <tr>
+            <td class="image">
+              <a href="{{ post.id }}">
+                <div class="image" style="background-image: url('{{ post.image }}')">
+                </div>
+              </a>
+            </td>
+            <td class="desc">
+              <a class="header" href="{{ post.id }}">{{ post.title }}</a>
+              <p class="body">{{ post.excerpt }}</p>
+              <p class="footer">
+                {{ post.date | date_to_long_string }} | {{ post.tags | join: ', ' }}
+              </p>
+            </td>
+          </tr>
+        </table>
+    {% endif %}
+  {% endfor %}
+  </div>
+  {% include headers_selector.html %}
+</div>

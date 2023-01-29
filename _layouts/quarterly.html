@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+{% assign pageYear = page.year | plus: 0 %}
+{% assign pageQuarter = page.quarter | plus: 0 %}
+
+<div class="page monthly">
+  <h1 class="page-title">{{ page.year }} Q{{ page.quarter }}</h1>
+  <p>My blog posts of {{ page.year }} Q{{ page.quarter}}.</p>
+  <div class="monthly items">
+  {% for post in site.posts %}
+    {% assign createYear = post.date | date: "%Y" | plus: 0 %}
+    {% assign createMonth = post.date | date: "%m" | plus: 0 %}
+    {% assign createQuarter = createMonth | minus: 1 | divided_by: 3 | floor | plus: 1 %}
+
+    {% assign updateYear = post.last_modified_at | date: "%Y" | plus: 0 %}
+    {% assign updateMonth = post.last_modified_at | date: "%m" | plus: 0 %}
+    {% assign updateQuarter = updateMonth | minus: 1 | divided_by: 3 | floor | plus: 1 %}
+
+
+    {% if updateYear == pageYear and updateQuarter == pageQuarter %}
+        <table class="item">
+          <tr>
+            <td class="image">
+              <a href="{{ post.id }}">
+                <div class="image" style="background-image: url('{{ post.image }}')">
+                </div>
+              </a>
+            </td>
+            <td class="desc">
+              <a class="header" href="{{ post.id }}">{{ post.title }}</a>
+              <p class="body">{{ post.excerpt }}</p>
+              <p class="footer">
+                {{ post.last_modified_at | date_to_long_string }} (updated) | {{ post.tags | join: ', ' }}
+              </p>
+            </td>
+          </tr>
+        </table>
+    {% elsif createYear == pageYear and createQuarter == pageQuarter %}
+        <table class="item">
+          <tr>
+            <td class="image">
+              <a href="{{ post.id }}">
+                <div class="image" style="background-image: url('{{ post.image }}')">
+                </div>
+              </a>
+            </td>
+            <td class="desc">
+              <a class="header" href="{{ post.id }}">{{ post.title }}</a>
+              <p class="body">{{ post.excerpt }}</p>
+              <p class="footer">
+                {{ post.date | date_to_long_string }} | {{ post.tags | join: ', ' }}
+              </p>
+            </td>
+          </tr>
+        </table>
+    {% endif %}
+  {% endfor %}
+  </div>
+</div>

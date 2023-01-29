@@ -1,0 +1,12 @@
+---
+layout: page
+---
+
+{{ content }}
+
+<div class="layout--articles">
+  <section class="my-5">
+    {% assign _articles = site.tags[page.tag] %}
+    {%- include article-list.html articles=_articles type='grid' size='md' -%}
+  </section>
+</div>

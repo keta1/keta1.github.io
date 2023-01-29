@@ -1,0 +1,37 @@
+<div class="toc-aside js-toc-root">
+<!-- start ads -->
+{% assign _ads = page.ads | default: "ethical-ads" %}
+{% if _ads == "ethical-ads" %}
+  {% comment %}
+    id:
+        "ea-article" -- Placement ID for EthicalAds (EA) for article.
+
+    data-ea-publisher:
+        "mincongio" -- Name of the publisher.
+
+    data-ea-type:
+        "image" -- Because we want to show image not text.
+
+  {% endcomment %}
+
+  {% if page.ads_tags %}
+    {% assign _tags = page.tags | concat: page.ads_tags | uniq %}
+  {% else %}
+    {% assign _tags = page.tags %}
+  {% endif %}
+
+  <!-- https://ethical-ad-client.readthedocs.io/en/latest/ -->
+  <div class="article__ads">
+    {% if jekyll.environment == 'production' %}
+      <div id="ea-article"
+           class="horizontal"
+           data-ea-publisher="mincongio"
+           data-ea-keywords="{{ _tags | join: '|'  }}"
+           data-ea-type="image">
+    {% endif %}
+    </div>
+  </div>
+{% endif %}
+<!-- end ads -->
+
+</div>

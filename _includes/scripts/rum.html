@@ -1,0 +1,24 @@
+<script>
+  (function(h,o,u,n,d) {
+    h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+    d=o.createElement(u);d.async=1;d.src=n
+    n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+  })(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum-v4.js','DD_RUM')
+  DD_RUM.onReady(function() {
+    DD_RUM.init({
+      clientToken: '{{ site.analytics.datadog.client_token }}',
+      applicationId: '{{ site.analytics.datadog.application_id }}',
+      site: '{{ site.analytics.datadog.site }}',
+      service: '{{ site.analytics.datadog.service }}',
+      env: 'prod',
+      // Specify a version number to identify the deployed version of your application in Datadog
+      version: '{{ site.env.SERVICE_VERSION }}',
+      sampleRate: 100,
+      allowedTracingOrigins: ["https://search.jimidata.info"],
+      trackInteractions: true,
+      defaultPrivacyLevel: 'mask-user-input'
+    });
+
+    DD_RUM.startSessionReplayRecording();
+  })
+</script>

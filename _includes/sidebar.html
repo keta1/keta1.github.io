@@ -1,0 +1,54 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+
+  <div class="sidebar-item">
+    <a href="https://stackoverflow.com/users/4381330/mincong-huang">
+      <img src="https://stackexchange.com/users/flair/5516910.png?theme=dark" style="border-radius:0" width="208" height="auto" alt="profile for Mincong Huang on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Mincong Huang on Stack Exchange, a network of free, community-driven Q&amp;A sites">
+    </a>
+    <p>{{ site.description }}</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+
+    {% comment %}
+      The code below dynamically generates a sidebar nav of pages with
+      `layout: page` in the front-matter. See readme for usage.
+    {% endcomment %}
+
+    {% assign pages_list = site.pages | sort:"url" %}
+    {% for node in pages_list %}
+      {% if node.title != null %}
+        {% if node.layout == "page" %}
+          <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}"
+             href="{{ node.url }}">
+            {% if node.menu_label %}
+              {{ node.menu_label }}
+            {% else %}
+              {{ node.title }}
+            {% endif %}
+          </a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <a class="sidebar-nav-item" href="/categories/java-core">Java Core</a>
+    <a class="sidebar-nav-item" href="/categories/java-concurrency">Java Concurrency</a>
+    <a class="sidebar-nav-item" href="/categories/java-serialization">Java Serialization</a>
+    <a class="sidebar-nav-item" href="/categories/git">Git</a>
+    <a class="sidebar-nav-item" href="/categories/build">Build Tools</a>
+    <a class="sidebar-nav-item" href="/categories/elasticsearch">Elasticsearch</a>
+    <a class="sidebar-nav-item" href="/categories/python">Python</a>
+    <a class="sidebar-nav-item" href="/categories/rest">RESTful APIs</a>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      Mincong HUANG &copy; {{ site.time | date: '%Y' }}. All rights reserved.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<!-- start custom main bottom snippet -->
+{% if page.id == nil %}
+  {% comment %}
+  Only load ads for non-post pages here because ads for posts is loaded elsewhere.
+  No ads for Chinese (zh) pages because EthicalAds only supports English.
+  {% endcomment %}
+
+  {% assign _ads = page.ads | default: "ethical-ads" %}
+  {% if _ads == "ethical-ads" and page.lang != "zh" %}
+    {% if page.ads_tags %}
+      {% assign _tags = page.tags | concat: page.ads_tags | uniq %}
+    {% else %}
+      {% assign _tags = page.tags %}
+    {% endif %}
+
+    <div class="main__ads">
+      {% if jekyll.environment == 'production' %}
+        <div id="ea-article"
+             class="horizontal"
+             data-ea-publisher="mincongio"
+             data-ea-keywords="{{ _tags | join: '|'  }}"
+             data-ea-type="image">
+      {% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+<!-- end custom main bottom snippet -->
