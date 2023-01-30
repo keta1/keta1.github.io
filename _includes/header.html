@@ -17,10 +17,31 @@
           {% include snippets/get-nav-url.html path=__return %}
           {% assign _site_root = __return %}
 
-          {% include snippets/get-string-from-locale-config.html
-                     locale=site.data.navigation.site.urls2 %}
-          {% include snippets/get-nav-url.html path=__return %}
-          {% assign _site_root2 = __return %}
+          {% if layout.layout == 'page' %}
+            {% include snippets/get-lang.html %}
+            {% assign _lang = __return %}
+            {% if _lang == "zh" %}
+              {% include snippets/get-article-url.html
+                      article=page
+                      collection=site.en %}
+            {% else %}
+              {% include snippets/get-article-url.html
+                      article=page
+                      collection=site.posts %}
+            {% endif %}
+            {% assign _site_root2 = __return %}
+            {% if _site_root2 == nil %}
+              {% include snippets/get-string-from-locale-config.html
+                      locale=site.data.navigation.site.urls2 %}
+              {% include snippets/get-nav-url.html path=__return %}
+              {% assign _site_root2 = __return %}
+            {% endif %}
+          {% else %}
+            {% include snippets/get-string-from-locale-config.html
+                    locale=site.data.navigation.site.urls2 %}
+            {% include snippets/get-nav-url.html path=__return %}
+            {% assign _site_root2 = __return %}
+          {% endif %}
 
           {% include snippets/get-string-from-locale-config.html
                      locale=site.data.navigation.site.urls2_src %}
@@ -61,13 +82,13 @@
           {%- if site.search.provider -%}
             <li><button class="button button--secondary button--circle search-button js-search-toggle" data-dd-action-name="search"><i class="fas fa-search"></i></button></li>
           {%- endif -%}
-          <li>
-            <a href="{{ _site_root2 }}">
-             <img src="{{ _site_root2_src }}"
-                  alt="{{ _site_roo2_alt }}"
-                  class="naviation__lang_img">
-            </a>
-          </li>
+            <li><button class="button button--secondary button--circle search-button js-search-toggle" data-dd-action-name="search">
+                    <a href="{{ _site_root2 }}">
+                        <img src="{{ _site_root2_src }}"
+                             alt="{{ _site_roo2_alt }}"
+                             class="naviation__lang_img">
+                    </a>
+                </button></li>
         </ul>
       </nav>
       {%- endif -%}
