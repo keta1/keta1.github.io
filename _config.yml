@@ -4,16 +4,16 @@
 # which you are expected to set up once and rarely need to edit after that.
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
-
-## !USE TEXT THEME
-theme: jekyll-text-theme # Gem-based Jekyll Themes
-# remote_theme: kitian616/jekyll-TeXt-theme # Jekyll Remote Theme, see https://github.com/benbalter/jekyll-remote-theme for more information.
 #
 # ,--------.      ,--.   ,--. ,--.
 # '--.  .--',---.  \  `.'  /,-'  '-.
 #    |  |  | .-. :  .'    \ '-.  .-'
 #    |  |  \   --. /  .'.  \  |  |
 #    `--'   `----''--'   '--' `--'
+
+
+
+
 ## => Site Settings
 ##############################
 text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
@@ -27,7 +27,7 @@ description: > # this means to ignore newlines until "Language & timezone"
 
 ## => Language and Timezone
 ##############################
-lang: zh
+lang: zh_CN
 timezone: Asia/Shanghai
 
 
@@ -52,6 +52,10 @@ author:
   github    : keta1 # "user_name" the last part of your profile url, e.g. https://github.com/user_name
   npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
 
+# Jekyll SEO Tag
+twitter:
+  username: ketal178
+  card:     summary_large_image
 
 ## => GitHub Repository (if the site is hosted by GitHub)
 ##############################
@@ -88,7 +92,7 @@ mathjax: # false (default), true
 mathjax_autoNumber: # false (default), true
 
 ## Mermaid
-mermaid: # false (default), true
+mermaid: true
 
 ## Chart
 chart: # false (default), true
@@ -96,15 +100,15 @@ chart: # false (default), true
 
 ## => Paginate (v2)
 ##############################
+## paginate v1 does not support pagination for all collections, e.g. "cn"
 pagination:
   enabled: true
   per_page: 8
-#paginate_path: /page:num # don't change this unless for special need
 
 
 ## => Sources
 ##############################
-sources: # bootcdn (default), unpkg
+sources: custom # bootcdn (default), unpkg
 
 
 ## => Sharing
@@ -229,13 +233,14 @@ defaults:
       show_subscribe: true
       pageview: true
 
-
 ## => Plugins
 ##############################
 plugins:
+  - jekyll-environment-variables
   - jekyll-feed
   - jekyll-paginate-v2
   - jekyll-redirect-from
+  - jekyll-seo-tag
   - jekyll-sitemap
   - jemoji
 
