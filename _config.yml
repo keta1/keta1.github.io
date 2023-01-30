@@ -206,6 +206,7 @@ exclude:
   - /screenshots
   - /test
   - /vendor
+  - .idea
 
 defaults:
   - scope:
@@ -248,5 +249,5 @@ plugins:
 ##############################
 collections:
   en:
-    promalink: /en/:title/
+    permalink: /en/:title/
     output:    true
