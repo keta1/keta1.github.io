@@ -43,7 +43,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://api.xposed.info/' }  // Just add this line
+        maven { url 'https://api.xposed.info/reference/' }  // Just add this line
     }
 }
 ```
